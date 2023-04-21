@@ -50,7 +50,7 @@
 <!-- Sobre o Projeto -->
 ## Sobre o Projeto
 
-Após ver em diversos lugares as pessoas discutindo quais serviços de cloud são os maiores requisitados pelas empresas, eu decidi aproveitar o momento para matar essa curiosidade.
+Após ver em diversos lugares as pessoas discutindo quais serviços de cloud são os maiores requisitados pelas empresas, eu decidi aproveitar o momento para satisfazer essa curiosidade e levar uma informação utíl aos stakeholders.
 
 
 
@@ -105,7 +105,30 @@ Após importar os arquivos obtidos no Kaggle e carrega-los no Power Query, foi r
 	else if [state] = null and [city] <> null then [city]
 	else [country_1])
    ```
+   
+3. Etapa:
 
+	Nesta etapa, serão excluídas todas as colunas que não serão utilizadas na análise, são elas: "onsite_remote", "salary", "criteria", "link", "city", "state" e "country_1" (esta última coluna foi criada anteriormente)
+
+
+4. Etapa:
+
+	A fim de identificar se a vaga requer conhecimento em Cloud Computing e, em caso afirmativo, especificar qual plataforma é necessária, foi utilizada a técnica de criação de coluna personalizada. Essa coluna foi criada por meio da fórmula 'Text Contains', a qual busca por palavras-chave relacionadas às plataformas de Cloud mais comuns. Quando a palavra-chave é encontrada, a respectiva plataforma é atribuída ao campo correspondente na coluna criada. Vale ressaltar que muitas vagas exigem conhecimentos em Cloud Computing, sem especificar qual plataforma é necessária. Para esses casos, foram considerados os maiores players do mercado em Cloud Computing como possíveis requisitos.
+	
+   ```r
+	= Table.AddColumn(#"Colunas Removidas", "Cloud", each if Text.Contains([description], "Azure") and Text.Contains([description], "AWS") and (Text.Contains([description], "GCP") or Text.Contains([description], "Google Cloud")) then "Azure, AWS e GCP"
+	else if Text.Contains([description], "Azure") and (Text.Contains([description], "Google Cloud") or Text.Contains([description], "GCP")) then "Microsoft Azure e GCP"
+	else if Text.Contains([description], "AWS") and (Text.Contains([description], "Google Cloud") or Text.Contains([description], "GCP")) then "Amazon AWS e GCP"
+	else if Text.Contains([description], "Azure") and Text.Contains([description], "AWS") then "Microsoft Azure e AWS"
+	else if Text.Contains([description], "Azure") then "Microsoft Azure"
+	else if Text.Contains([description], "AWS") then "Amazon AWS"
+	else if Text.Contains([description], "GCP") then "Google Cloud Platform"
+	else if Text.Contains([description], "Google Cloud Platform") then "Google Cloud Platform"
+	else if Text.Contains([description], "Oracle Cloud") then "Oracle Cloud"
+	else if Text.Contains([description], "IBM Cloud") then "IBM Cloud"
+	else if Text.Contains([description], "Salesforce") then "Salesforce"
+	else null)
+   ```
 
 
 
