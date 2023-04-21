@@ -1,10 +1,10 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <h1 align="center">Análise de Dados das Vagas de Emprego do EUA e Canadá</h1>
+  <h1 align="center">Análise de Dados das Vagas de Emprego do EUA, Canadá e África</h1>
 
   <p align="center">
-    Análise dos Dados das vagas de emprego dos EUA e Canadá para o desafio <a href="https://www.linkedin.com/feed/hashtag/?keywords=5dataglowup">5-data-glow-up</a> do <a href="https://www.linkedin.com/in/heitorsasaki">Heitor Sasaki</a>.
+    Análise dos Dados das vagas de emprego dos EUA, Canadá e África para o desafio <a href="https://www.linkedin.com/feed/hashtag/?keywords=5dataglowup">5-data-glow-up</a> do <a href="https://www.linkedin.com/in/heitorsasaki">Heitor Sasaki</a>.
   </p>
   <p align="center">
     Os dados usados se encontram em uma base de dados do <a href="https://www.kaggle.com/datasets/cedricaubin/linkedin-data-analyst-jobs-listings">Kaggle</a>.
@@ -26,7 +26,7 @@
     <li>
       <a href="#análise-dos-dados">Análise dos Dados</a>
       <ul>
-        <li><a href="#processo-etl">Processo ETL</a></li>
+      	<li><a href="#processo-etl">Processo ETL</a></li>
         <li><a href="#existe-alguma-possibilidade-desses-gêneros-serem-os-mais-alugados-por-terem-mais-filmes">Existe alguma possibilidade desses gêneros serem os mais alugados por terem mais filmes?</a></li>
         <li><a href="#quais-foram-os-5-filmes-mais-alugados">Quais foram os 5 filmes mais alugados?</a></li>
         <li><a href="#quais-foram-os-5-filmes-menos-alugados">Quais foram os 5 filmes menos alugados?</a></li>
@@ -72,14 +72,39 @@ Para realizar este projeto, foi usado as seguintes ferramenta:
    ```
 2. Com os arquivos, será possível abrir o projeto no Microsoft Excel.
 
+
+
 ## Análise dos Dados
 
-Para este projeto, foi decidido que o processo ETL será realizado utilizando o Power Query e sua linguagem M, que já vem implementada no Excel desde a versão 2010. Em seguida, será realizada a etapa de análise dos dados.
+Em seguida, será realizada a etapa de análise dos dados.
+
 
 ### Processo ETL
 
+Para este projeto, foi decidido que o processo ETL será realizado utilizando o Power Query e sua linguagem M, que foi implementada no Excel de versão 2010 em diante.
+
 Após importar os arquivos obtidos no Kaggle e carrega-los no Power Query, foi realizada a primeira análise dos dados, essa para conhecer a base de uma maneira geral, para assim realizar a transformação necessária.
 
+
+1. Etapa:
+
+	A primeira etapa consiste em retirar as llinhas completamente vazias das tabela, em todas elas, as linhas pares contém linahs em branco, que de nada servem para a análise.
+
+2. Etapa:
+
+	Para responder as questões de negócio, precisará saber de qual país é cada vaga, para isso, foi verificado que no campo de localização tem a cidade, estado e país separados por vírgula, alguns casos, está apenas a cidade ou estado e país precisando de mais um processo, além de separar a coluna por vírgula.
+
+	Para esta etapa, no Canadá, foi usado o <i>separador de colunas por delimitador (vírgula)</i> e depois usado a ferramenta <i>preenchimento para baixo</i>, assim todos os registros terão o nome do país para uso posterior na análise.
+
+	Nos EUA, os registros que tem o nome do país estão em inglês e há os que tem apenas cidade e estado, conforme mencionado anteriormente. Para colocar um campo informando o país foi necessário apenas usar a opção de adicionar <i>coluna personalizada</i> recebendo uma string "Estados Unidos".
+
+	Para tratar os dados referentes à África, utilizou-se inicialmente o <i>separador de colunas por delimitador (vírgula)</i>. Em seguida, foi criada uma nova coluna utilizando uma fórmula que verificava se a coluna de país, criada a partir do separador, estava nula. Caso isso ocorresse, o campo receberia o conteúdo da coluna de estado. Caso a coluna de estado também estivesse nula, seria adicionado o conteúdo da coluna de cidade.
+	
+   ```r
+   = Table.AddColumn(#"Separar Cidade, Estado e País", "country", each if [country_1] = null and [state] <> null then [state] 
+	else if [state] = null and [city] <> null then [city]
+	else [country_1])
+   ```
 
 
 
