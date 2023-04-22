@@ -81,7 +81,7 @@ Antes de prosseguir com a análise de dados, é essencial compreender e descobri
 
 ### Requisitos de Negócios
 
-
+No geral, a principal pergunta a ser questionada é qual é o serviço na nuvem mais usado? 
 
 
 ### Processo ETL
