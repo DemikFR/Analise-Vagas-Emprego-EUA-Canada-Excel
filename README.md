@@ -26,6 +26,7 @@
     <li>
       <a href="#análise-dos-dados">Análise dos Dados</a>
       <ul>
+        <li><a href="#requisitos-de-negócios">Requisitos de Negócios</a></li>
       	<li><a href="#processo-etl">Processo ETL</a></li>
         <li><a href="#existe-alguma-possibilidade-desses-gêneros-serem-os-mais-alugados-por-terem-mais-filmes">Existe alguma possibilidade desses gêneros serem os mais alugados por terem mais filmes?</a></li>
         <li><a href="#quais-foram-os-5-filmes-mais-alugados">Quais foram os 5 filmes mais alugados?</a></li>
@@ -76,7 +77,11 @@ Para realizar este projeto, foi usado as seguintes ferramenta:
 
 ## Análise dos Dados
 
-Em seguida, será realizada a etapa de análise dos dados.
+Antes de prosseguir com a análise de dados, é essencial compreender e descobrir os requisitos do negócio, juntamente com as perguntas que precisam ser respondidas.  Em seguida, será realizada a etapa de análise dos dados.
+
+### Requisitos de Negócios
+
+
 
 
 ### Processo ETL
@@ -116,18 +121,35 @@ Após importar os arquivos obtidos no Kaggle e carrega-los no Power Query, foi r
 	A fim de identificar se a vaga requer conhecimento em Cloud Computing e, em caso afirmativo, especificar qual plataforma é necessária, foi utilizada a técnica de criação de coluna personalizada. Essa coluna foi criada por meio da fórmula 'Text Contains', a qual busca por palavras-chave relacionadas às plataformas de Cloud mais comuns. Quando a palavra-chave é encontrada, a respectiva plataforma é atribuída ao campo correspondente na coluna criada. Vale ressaltar que muitas vagas exigem conhecimentos em Cloud Computing, sem especificar qual plataforma é necessária. Para esses casos, foram considerados os maiores players do mercado em Cloud Computing como possíveis requisitos.
 	
    ```r
-	= Table.AddColumn(#"Colunas Removidas", "Cloud", each if Text.Contains([description], "Azure") and Text.Contains([description], "AWS") and (Text.Contains([description], "GCP") or Text.Contains([description], "Google Cloud")) then "Azure, AWS e GCP"
+	= Table.AddColumn(#"Valor Substituído", "Cloud", each if Text.Contains([description], "Azure") and Text.Contains([description], "AWS") and (Text.Contains([description], "GCP") or Text.Contains([description], "Google Cloud")) then "Azure, AWS e GCP"
 	else if Text.Contains([description], "Azure") and (Text.Contains([description], "Google Cloud") or Text.Contains([description], "GCP")) then "Microsoft Azure e GCP"
 	else if Text.Contains([description], "AWS") and (Text.Contains([description], "Google Cloud") or Text.Contains([description], "GCP")) then "Amazon AWS e GCP"
 	else if Text.Contains([description], "Azure") and Text.Contains([description], "AWS") then "Microsoft Azure e AWS"
 	else if Text.Contains([description], "Azure") then "Microsoft Azure"
 	else if Text.Contains([description], "AWS") then "Amazon AWS"
-	else if Text.Contains([description], "GCP") then "Google Cloud Platform"
-	else if Text.Contains([description], "Google Cloud Platform") then "Google Cloud Platform"
+	else if Text.Contains([description], "GCP") or Text.Contains([description], "Google Cloud") or Text.Contains([description], "Google Cloud Platform") then "Google Cloud Platform"
 	else if Text.Contains([description], "Oracle Cloud") then "Oracle Cloud"
 	else if Text.Contains([description], "IBM Cloud") then "IBM Cloud"
 	else if Text.Contains([description], "Salesforce") then "Salesforce"
+	
+	# This condition only for Canada
+	else if Text.Contains([description], "Cloud") then "Azure, AWS e GCP"
 	else null)
+   ```
+   
+	Para garantir a precisão dos dados analisados, foi necessária uma etapa adicional para verificar às vagas que mencionavam apenas "Cloud" sem especificar qual tipo e em seguida verificar o motivo de cada ocorrência.
+
+   ```r
+	= Table.AddColumn(#"Valor Substituído", "Cloud", each if Text.Contains([description], "Cloud") then "Cloud"
+   ```
+
+
+	Em alguns casos, há um nome genérico para se referir a nuvem (por exemplo, Cloud Technologies), mas existe um serviço preferível disponível. Nesses casos, foi decidido utilizar o serviço preferível como o solicitado.
+
+	Na África, foi identificado Google Cloud Platform que não pôde ser encontrado, pois estava junto com outra palavra, assim, foi necessário adicionar um espaço entre às duas palavras.
+
+   ```r
+	= Table.ReplaceValue(#"Colunas Removidas","PythonGoogle","Python Google",Replacer.ReplaceText,{"description"})
    ```
 
 
