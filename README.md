@@ -77,11 +77,15 @@ Para realizar este projeto, foi usado as seguintes ferramenta:
 
 ## Análise dos Dados
 
-Antes de prosseguir com a análise de dados, é essencial compreender e descobrir os requisitos do negócio, juntamente com as perguntas que precisam ser respondidas.  Em seguida, será realizada a etapa de análise dos dados.
+Antes de prosseguir com a análise de dados, é essencial compreender e descobrir os requisitos do negócio, juntamente com as perguntas que precisam ser respondidas.  Em seguida, deve-se realizar a etapa de preparação dos dados, para então dar início à análise propriamente dita.
 
 ### Requisitos de Negócios
 
-No geral, a principal pergunta a ser questionada é qual é o serviço na nuvem mais usado? 
+Em geral, a pergunta principal que deve ser feita é: qual é o serviço em nuvem mais utilizado nos países mencionados? Para responder a essa pergunta de forma mais detalhada, é necessário fazer outras perguntas relevantes que possam fornecer informações úteis.
+
+Assim, as perguntas feitas, são:
+
+1.
 
 
 ### Processo ETL
