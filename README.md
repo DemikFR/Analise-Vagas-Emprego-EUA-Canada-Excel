@@ -77,7 +77,7 @@ Para realizar este projeto, foi usado as seguintes ferramenta:
 
 ## Análise dos Dados
 
-Antes de prosseguir com a análise de dados, é essencial compreender e descobrir os requisitos do negócio, juntamente com as perguntas que precisam ser respondidas.  Em seguida, deve-se realizar a etapa de preparação dos dados, para então dar início à análise propriamente dita.
+Antes de prosseguir com a análise de dados, é essencial compreender e descobrir os requisitos do negócio, juntamente com as perguntas que precisam ser respondidas para depois realizar a etapa de preparação dos dados e, assim, dar início à análise propriamente dita. Dessa forma, resultará em um projeto mais preciso e bem-sucedido.
 
 ### Requisitos de Negócios
 
@@ -85,7 +85,13 @@ Em geral, a pergunta principal que deve ser feita é: qual é o serviço em nuve
 
 Assim, as perguntas feitas, são:
 
-1.
+1. Qual é a proporção de vagas de Analista de Dados que exigem ou mencionam o uso de serviços em nuvem em relação ao total de vagas disponíveis para essa função?
+
+2. Por países, quais são os maiores serviços?
+
+3. Qual é a proporção de cada serviço por país ou região?
+
+4. Considerando a quantidade de vagas disponíveis, quais são as funções que mais exigem ou mencionam o uso de serviços em nuvem em sua descrição?
 
 
 ### Processo ETL
@@ -97,7 +103,9 @@ Após importar os arquivos obtidos no Kaggle e carrega-los no Power Query, foi r
 
 1. Etapa:
 
-	A primeira etapa consiste em retirar as llinhas completamente vazias das tabela, em todas elas, as linhas pares contém linahs em branco, que de nada servem para a análise.
+	A primeira etapa consiste em retirar as linhas completamente vazias da tabela. Em todas elas, as linhas pares contém linhas em branco, que de nada servem para a análise.
+	
+	Além disso, todos os registros em que a descrição estavam vazias, foram excluídas para manter o rigor da análise.
 
 2. Etapa:
 
@@ -136,27 +144,28 @@ Após importar os arquivos obtidos no Kaggle e carrega-los no Power Query, foi r
 	else if Text.Contains([description], "IBM Cloud") then "IBM Cloud"
 	else if Text.Contains([description], "Salesforce") then "Salesforce"
 	
-	# This condition only for Canada
+	# Estas condições apenas para o Canada
+	else if Text.Contains([description], "Redshift") then "AWS"
 	else if Text.Contains([description], "Cloud") then "Azure, AWS e GCP"
 	else null)
    ```
    
-	Para garantir a precisão dos dados analisados, foi necessária uma etapa adicional para verificar às vagas que mencionavam apenas "Cloud" sem especificar qual tipo e em seguida verificar o motivo de cada ocorrência.
+	Para garantir a precisão dos dados analisados, foi necessária uma etapa adicional para verificar às vagas que mencionavam apenas "Cloud" sem especificar qual tipo, seguida da análise individual de cada ocorrência para identificar o motivo.
 
    ```r
 	= Table.AddColumn(#"Valor Substituído", "Cloud", each if Text.Contains([description], "Cloud") then "Cloud"
    ```
 
-
 	Em alguns casos, há um nome genérico para se referir a nuvem (por exemplo, Cloud Technologies), mas existe um serviço preferível disponível. Nesses casos, foi decidido utilizar o serviço preferível como o solicitado.
+	
+	Com base no primeiro script mencionado, observou-se que, em alguns casos no Canadá, a habilidade de trabalhar com serviços em nuvem era referenciada apenas como "cloud", sem especificar o provedor. No entanto, foram considerados os três maiores provedores de serviços em nuvem. Além disso, foi identificada uma vaga que especificava o uso de um serviço da AWS, o Redshift. Para capturar adequadamente essa informação, foi realizada uma busca pelo nome "Redshift" e adicionado o serviço à lista de habilidades exigidas para essa vaga específica.
 
-	Na África, foi identificado Google Cloud Platform que não pôde ser encontrado, pois estava junto com outra palavra, assim, foi necessário adicionar um espaço entre às duas palavras.
+	Na África, foi identificado um Google Cloud Platform que não pôde ser encontrado, pois estava junto com outra palavra, assim, foi necessário adicionar um espaço entre às duas palavras usando a fórmula da linguagem M.
 
    ```r
 	= Table.ReplaceValue(#"Colunas Removidas","PythonGoogle","Python Google",Replacer.ReplaceText,{"description"})
-   ```
-
-
+   ```	
+	
 
 <!-- LICENSE -->
 ## License
