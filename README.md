@@ -29,15 +29,6 @@
         <li><a href="#requisitos-de-negócios">Requisitos de Negócios</a></li>
       	<li><a href="#processo-etl">Processo ETL</a></li>
         <li><a href="#existe-alguma-possibilidade-desses-gêneros-serem-os-mais-alugados-por-terem-mais-filmes">Existe alguma possibilidade desses gêneros serem os mais alugados por terem mais filmes?</a></li>
-        <li><a href="#quais-foram-os-5-filmes-mais-alugados">Quais foram os 5 filmes mais alugados?</a></li>
-        <li><a href="#quais-foram-os-5-filmes-menos-alugados">Quais foram os 5 filmes menos alugados?</a></li>
-        <li><a href="#existe-algum-filme-que-não-foi-alugado">Existe algum filme que não foi alugado?</a></li>
-        <li><a href="#por-ordem-decrescente-qual-foi-o-lucro-que-cada-loja-recebeu">Por ordem decrescente, qual foi o lucro que cada loja recebeu?</a></li>
-        <li><a href="#quem-são-os-10-maiores-clientes">Quem são os 10 maiores clientes?</a></li>
-        <li><a href="#quais-são-as-cidades-onde-residem-os-10-maiores-clientes">Quais são as cidades onde residem os 10 maiores clientes?</a></li>
-	<li><a href="#quais-são-as-cinco-cidades-com-o-maior-número-de-clientes-exceto-as-que-já-possuem-lojas">Quais são as cinco cidades com o maior número de clientes, exceto as que já possuem lojas?</a></li>
-        <li><a href="#quem-é-o-ator-que-tem-mais-filmes-alugados">Quem é o ator que tem mais filmes alugados?</a></li>
-        <li><a href="#qual-foi-o-lucro-médio-de-cada-ano">Existe algum filme que não foi alugado?</a></li>
       </ul> 
     </li>
     <li><a href="#agradecimentos">Agradecimentos</a></li>
@@ -134,11 +125,11 @@ Após importar os arquivos obtidos no Kaggle e carrega-los no Power Query, foi r
 	
    ```r
 	= Table.AddColumn(#"Valor Substituído", "Cloud", each if Text.Contains([description], "Azure") and Text.Contains([description], "AWS") and (Text.Contains([description], "GCP") or Text.Contains([description], "Google Cloud")) then "Azure, AWS e GCP"
-	else if Text.Contains([description], "Azure") and (Text.Contains([description], "Google Cloud") or Text.Contains([description], "GCP")) then "Microsoft Azure e GCP"
-	else if Text.Contains([description], "AWS") and (Text.Contains([description], "Google Cloud") or Text.Contains([description], "GCP")) then "Amazon AWS e GCP"
-	else if Text.Contains([description], "Azure") and Text.Contains([description], "AWS") then "Microsoft Azure e AWS"
-	else if Text.Contains([description], "Azure") then "Microsoft Azure"
-	else if Text.Contains([description], "AWS") then "Amazon AWS"
+	else if Text.Contains([description], "Azure") and (Text.Contains([description], "Google Cloud") or Text.Contains([description], "GCP")) then "Azure e GCP"
+	else if Text.Contains([description], "AWS") and (Text.Contains([description], "Google Cloud") or Text.Contains([description], "GCP")) then "AWS e GCP"
+	else if Text.Contains([description], "Azure") and Text.Contains([description], "AWS") then "Azure e AWS"
+	else if Text.Contains([description], "Azure") then "Azure"
+	else if Text.Contains([description], "AWS") then "AWS"
 	else if Text.Contains([description], "GCP") or Text.Contains([description], "Google Cloud") or Text.Contains([description], "Google Cloud Platform") then "Google Cloud Platform"
 	else if Text.Contains([description], "Oracle Cloud") then "Oracle Cloud"
 	else if Text.Contains([description], "IBM Cloud") then "IBM Cloud"
@@ -165,6 +156,32 @@ Após importar os arquivos obtidos no Kaggle e carrega-los no Power Query, foi r
    ```r
 	= Table.ReplaceValue(#"Colunas Removidas","PythonGoogle","Python Google",Replacer.ReplaceText,{"description"})
    ```	
+   
+5. Etapa:
+
+	Para responder a quarta pergunta, foi criado uma nova coluna buscando padrões no título das vagas, por exemplo, todas as palavras que tem relação com "Analista" é considerado Analista de Dados, é necessário salientar que profissionais de BI, foram unidos com o Analista de Dados ficando "Analista de Dados ou BI", assim como os Desenvolvedores de Dados foram considerados "Engenheiro de Dados", que conforme as descrições de vaga, realizam atividades muito parecidas ou até igual à categoria que foi considerada.
+	
+   ```r
+	= Table.AddColumn(#"Coluna Cloud Adicionada", "expertise", each if Text.Contains([title], "Analyst") or Text.Contains([title], "ANALYST") or Text.Contains([title], "analyst") or Text.Contains([title], "analysis") or Text.Contains([title], "Analysis") or Text.Contains([title], "Analytics") or Text.Contains([title], "BI") or Text.Contains([title], "Business Intelligence") or Text.Contains([title], "Researcher") then "Analista de Dados ou BI"
+	else if Text.Contains([title], "Data Specialist") then "Especialista de Dados"
+	else if Text.Contains([title], "Data Engineer") or Text.Contains([title], "Developer") then "Engenheiro de Dados"
+	else if Text.Contains([title], "Data Intern") then "Estagiário de Dados"
+	else null)
+   ```	
+  
+6. Etapa:
+
+	A última etapa será unir os dados de todas as tabelas em uma só, assim facilitando o processo de análise. 
+	
+	Para isso, foi realizada uma nova consulta em branco no Power Query e inserida a fórmula <code>=Excel.CurrentWorkbook()</code>. Essa fórmula busca e une todas as tabelas do Excel por colunas.
+
+	Todo este processo ETL resultou na tabela, conforme a imagem abaixo:
+	
+	
+
+### Analse de Dados
+
+
 	
 
 <!-- LICENSE -->
