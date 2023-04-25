@@ -78,11 +78,13 @@ Assim, as perguntas feitas, são:
 
 1. Qual é a proporção de vagas de Analista de Dados que exigem ou mencionam o uso de serviços em nuvem em relação ao total de vagas disponíveis para essa função?
 
-2. Por países, quais são os maiores serviços?
+2. Quais são os serviços mais utilizados individualmente, considerando as quantidades dos serviços que estão agrupados?
 
-3. Qual é a proporção de cada serviço por país ou região?
+3. Qual é a utilização de cada serviço por país ou região, considerando os agrupamentos?
 
-4. Considerando a quantidade de vagas disponíveis, quais são as funções que mais exigem ou mencionam o uso de serviços em nuvem em sua descrição?
+4. Qual é a proporção de cada país para o uso de cloud?
+
+5. Considerando a quantidade de vagas disponíveis, quais são as funções que mais exigem ou mencionam o uso de serviços em nuvem em sua descrição?
 
 
 ### Processo ETL
@@ -175,7 +177,15 @@ Após importar os arquivos obtidos no Kaggle e carrega-los no Power Query, foi r
 	
 	Para isso, foi realizada uma nova consulta em branco no Power Query e inserida a fórmula <code>=Excel.CurrentWorkbook()</code>. Essa fórmula busca e une todas as tabelas do Excel por colunas.
 
-	Todo este processo ETL resultou na tabela, conforme a imagem abaixo:
+	Todo este processo ETL resultou na tabela, conforme a tabela de exemplo abaixo:
+	
+| title | company | description | posted_date | country | cloud | expertise | region name | 
+|-------|---------|-------------|-------------|---------|-------|-----------|-------------|
+Group Data Analyst | 60 Degrees Ltd | The opportunity that awaits you: A multinational International FMCG... | 12/11/2022	|  Botswana |  | Analista de Dados ou BI | Africa | 
+| Data Analyst | Clutch | DATA ANALYST Overview of Opportunity If you enjoy collaborating... | 08/11/2022	| United States | Azure | Analista de Dados ou BI | United States | 
+| Senior Data Analyst, APAC Marketplace | Hopper | About The JobDespite the challenges of the pandemic, Hopper managed to have triple... | 21/11/2022	|  Canada |   Google Cloud Platform | Analista de Dados ou BI | Canada |
+| Data Analyst (Credit Risk)	|	Kuda	|	Kuda is a fintech on a mission to make financial services accessible, affordable and...	|	21/11/2022	| South Africa	|	|	Analista de Dados ou BI	|	Africa
+
 	
 	
 
