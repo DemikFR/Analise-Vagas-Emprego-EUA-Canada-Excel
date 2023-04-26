@@ -191,6 +191,16 @@ Group Data Analyst | 60 Degrees Ltd | The opportunity that awaits you: A multina
 
 ### Analse de Dados
 
+Após a etapa de ETL, é possível realizar a análise com base nas perguntas pré-definidas.
+
+1. Pergunta
+
+	Para responder a 1° pergunta, foi usado um gráfico de pizza em que há duas fatias, uma para representar as vagas que não e a outra para a que menciona cloud. 
+	
+	![image](https://user-images.githubusercontent.com/102700735/234446481-b483fea1-1081-4fc1-8c87-0173ef4ebe8c.png)
+	
+	Para todas as vagas disponíveis, foi identificado que apenas 1/5 delas pedem ou ao menos mencionam o uso de cloud em suas descrições.
+
 
 	
 
