@@ -1,7 +1,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <h1 align="center">Análise de Dados das Vagas de Emprego do EUA, Canadá e África</h1>
+  <h1 align="center">Análise de Dados das Vagas de Emprego dos EUA, Canadá e África</h1>
 
   <p align="center">
     Análise dos Dados das vagas de emprego dos EUA, Canadá e África para o desafio <a href="https://www.linkedin.com/feed/hashtag/?keywords=5dataglowup">5-data-glow-up</a> do <a href="https://www.linkedin.com/in/heitorsasaki">Heitor Sasaki</a>.
@@ -200,6 +200,21 @@ Após a etapa de ETL, é possível realizar a análise com base nas perguntas pr
 	![image](https://user-images.githubusercontent.com/102700735/234446481-b483fea1-1081-4fc1-8c87-0173ef4ebe8c.png)
 	
 	Para todas as vagas disponíveis, foi identificado que apenas 1/5 delas pedem ou ao menos mencionam o uso de cloud em suas descrições.
+2. Pergunta
+
+	A partir do gráfico apresentado abaixo, é possível verificar que o serviço AWS é o mais frequentemente mencionado, com um total de 162 aparições a mais do que o segundo colocado, o Azure. Em seguida, na terceira posição, está o GCP, sendo que os três juntos somam 93% das aparições nas vagas. A quarta posição é ocupada pelo Salesforce, com 159 citações, enquanto o IBM Cloud aparece em último lugar, com apenas duas menções.
+
+	![image](https://user-images.githubusercontent.com/102700735/234467723-1ea770dc-bb72-4258-8f78-d2965eae21bd.png)
+	
+3. Pergunta
+
+	A partir da análise realizada considerando as diferentes categorias de serviços de cloud, é possível destacar algumas tendências interessantes. Ao avaliar as citações que mencionam mais de um serviço de cloud na mesma vaga, é possível observar que a categoria "AWS e GCP" se destaca no Canadá, com um total de 101 aparições. Além disso, a categoria "Azure e AWS" foi mencionada em todos os países e regiões analisados, com uma média de aproximadamente 37 menções.
+
+	Ao avaliar as categorias de clouds de forma isolada, nota-se que o Azure se destaca na África, embora seja o segundo menor nos Estados Unidos, ficando atrás do Salesforce. O AWS, por sua vez, é o maior serviço de cloud nos EUA e mantém uma boa posição e constância de 150 a 220 aparições em todos os países analisados. Já o GCP é o menor nos Estados Unidos, mas vence o Salesforce em todos os outros países e regiões, apresentando uma média de 85 aparições.
+	
+	![image](https://user-images.githubusercontent.com/102700735/234471103-3dc617c5-bf4e-48e2-a051-928e753b3e96.png)
+
+
 
 
 	
