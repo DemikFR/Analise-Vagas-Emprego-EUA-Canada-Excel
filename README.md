@@ -28,10 +28,9 @@
       <ul>
         <li><a href="#requisitos-de-negócios">Requisitos de Negócios</a></li>
       	<li><a href="#processo-etl">Processo ETL</a></li>
-        <li><a href="#existe-alguma-possibilidade-desses-gêneros-serem-os-mais-alugados-por-terem-mais-filmes">Existe alguma possibilidade desses gêneros serem os mais alugados por terem mais filmes?</a></li>
+        <li><a href="#analise-de-dados">Analise de Dados</a></li>
       </ul> 
     </li>
-    <li><a href="#agradecimentos">Agradecimentos</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
@@ -82,7 +81,7 @@ Assim, as perguntas feitas, são:
 
 3. Qual é a utilização de cada serviço por país ou região, considerando os agrupamentos?
 
-4. Qual é a proporção de cada país para o uso de cloud?
+4. Qual é a proporção de cada país ou região para o uso de cloud?
 
 5. Considerando a quantidade de vagas disponíveis, quais são as funções que mais exigem ou mencionam o uso de serviços em nuvem em sua descrição?
 
@@ -189,24 +188,25 @@ Group Data Analyst | 60 Degrees Ltd | The opportunity that awaits you: A multina
 	
 	
 
-### Analse de Dados
+### Analise de Dados
 
 Após a etapa de ETL, é possível realizar a análise com base nas perguntas pré-definidas.
 
-1. Pergunta
+1. Pergunta - Qual é a proporção de vagas de Analista de Dados que exigem ou mencionam o uso de serviços em nuvem em relação ao total de vagas disponíveis para essa função?
 
 	Para responder a 1° pergunta, foi usado um gráfico de pizza em que há duas fatias, uma para representar as vagas que não e a outra para a que menciona cloud. 
 	
 	![image](https://user-images.githubusercontent.com/102700735/234446481-b483fea1-1081-4fc1-8c87-0173ef4ebe8c.png)
 	
 	Para todas as vagas disponíveis, foi identificado que apenas 1/5 delas pedem ou ao menos mencionam o uso de cloud em suas descrições.
-2. Pergunta
+	
+2. Pergunta - Quais são os serviços mais utilizados individualmente, considerando as quantidades dos serviços que estão agrupados?
 
 	A partir do gráfico apresentado abaixo, é possível verificar que o serviço AWS é o mais frequentemente mencionado, com um total de 162 aparições a mais do que o segundo colocado, o Azure. Em seguida, na terceira posição, está o GCP, sendo que os três juntos somam 93% das aparições nas vagas. A quarta posição é ocupada pelo Salesforce, com 159 citações, enquanto o IBM Cloud aparece em último lugar, com apenas duas menções.
 
 	![image](https://user-images.githubusercontent.com/102700735/234467723-1ea770dc-bb72-4258-8f78-d2965eae21bd.png)
 	
-3. Pergunta
+3. Pergunta - Qual é a utilização de cada serviço por país ou região, considerando os agrupamentos?
 
 	A partir da análise realizada considerando as diferentes categorias de serviços de cloud, é possível destacar algumas tendências interessantes. Ao avaliar as citações que mencionam mais de um serviço de cloud na mesma vaga, é possível observar que a categoria "AWS e GCP" se destaca no Canadá, com um total de 101 aparições. Além disso, a categoria "Azure e AWS" foi mencionada em todos os países e regiões analisados, com uma média de aproximadamente 37 menções.
 
@@ -214,11 +214,22 @@ Após a etapa de ETL, é possível realizar a análise com base nas perguntas pr
 	
 	![image](https://user-images.githubusercontent.com/102700735/234471103-3dc617c5-bf4e-48e2-a051-928e753b3e96.png)
 
+4. Pergunta - Qual é a proporção de cada país ou região para o uso de cloud?
 
+	Entre as regiões analisadas, foi possível observar que o Canadá apresentou a maior proporção de vagas com a menção de serviços de cloud na descrição, correspondendo a 43% do total de vagas. Em seguida, a África apareceu com uma proporção aproximadamente 7% menor que o Canadá. Já os Estados Unidos apresentaram a menor proporção de vagas com cloud na descrição, correspondendo a apenas 21% do total, o que representa a metade da quantidade de vagas do Canadá.
+	
+	![image](https://user-images.githubusercontent.com/102700735/234728409-70b9a985-3e9a-4861-958c-dad8bdca5f1e.png)
+
+5. Pergunta - Considerando a quantidade de vagas disponíveis, quais são as funções que mais exigem ou mencionam o uso de serviços em nuvem em sua descrição?
+
+	Para esta questão, foi utilizado o gráfico de barras empilhadas, pois com ele, é possível verificar cada vaga e a proporção de menções aos serviços de cloud. Com isso, é possível perceber que em nenhuma vaga de Estagiário de Dados foi especificado algum serviço na descrição, enquanto em todas as vagas de Especialista de Dados, houve a ocorrência de cloud, mas vale resaltar, que existem apenas 2 vagas para este cargo. Com 192 vagas analisadas, o Engenheiro de Dados tem 45% de vagas que citam cloud, apesar de ser uma amostra pequena em relação ao mercado americano que tem mais de 92 mil vagas abertas no LinkedIn, no momento, é possível perceber que cloud é forte neste mercado. Para as vagas de Analista de Dados, 21% mencionaram cloud, isto é, um percentual significativamente menor do que as vagas para Engenheiro de Dados. Porém, ainda assim, indica uma presença relevante do uso de cloud nessa posição.
+
+	![image](https://user-images.githubusercontent.com/102700735/234728552-2e3dc4bf-97d1-40bd-82a7-087ebd0bf70b.png)
 
 
 	
 
+	
 <!-- LICENSE -->
 ## License
 
