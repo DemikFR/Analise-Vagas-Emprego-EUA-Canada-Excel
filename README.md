@@ -176,7 +176,7 @@ Após importar os arquivos obtidos no Kaggle e carrega-los no Power Query, foi r
 	
 	Para isso, foi realizada uma nova consulta em branco no Power Query e inserida a fórmula <code>=Excel.CurrentWorkbook()</code>. Essa fórmula busca e une todas as tabelas do Excel por colunas.
 
-	Todo este processo ETL resultou na tabela, conforme a tabela de exemplo abaixo:
+	Todo este processo ETL resultou na tabela, conforme o exemplo abaixo:
 	
 | title | company | description | posted_date | country | cloud | expertise | region name | 
 |-------|---------|-------------|-------------|---------|-------|-----------|-------------|
@@ -222,9 +222,15 @@ Após a etapa de ETL, é possível realizar a análise com base nas perguntas pr
 
 5. Pergunta - Considerando a quantidade de vagas disponíveis, quais são as funções que mais exigem ou mencionam o uso de serviços em nuvem em sua descrição?
 
-	Para esta questão, foi utilizado o gráfico de barras empilhadas, pois com ele, é possível verificar cada vaga e a proporção de menções aos serviços de cloud. Com isso, é possível perceber que em nenhuma vaga de Estagiário de Dados foi especificado algum serviço na descrição, enquanto em todas as vagas de Especialista de Dados, houve a ocorrência de cloud, mas vale resaltar, que existem apenas 2 vagas para este cargo. Com 192 vagas analisadas, o Engenheiro de Dados tem 45% de vagas que citam cloud, apesar de ser uma amostra pequena em relação ao mercado americano que tem mais de 92 mil vagas abertas no LinkedIn, no momento, é possível perceber que cloud é forte neste mercado. Para as vagas de Analista de Dados, 21% mencionaram cloud, isto é, um percentual significativamente menor do que as vagas para Engenheiro de Dados. Porém, ainda assim, indica uma presença relevante do uso de cloud nessa posição.
+	Para esta questão, foi utilizado o gráfico de barras empilhadas, pois com ele, é possível verificar cada vaga e a proporção de menções aos serviços de cloud. 
+	
+	Com isso, é possível perceber que em nenhuma vaga de Estagiário de Dados foi especificado algum serviço na descrição, enquanto em todas as vagas de Especialista de Dados, houve a ocorrência de cloud, mas vale resaltar, que existem apenas 2 vagas para este cargo. Com 192 vagas analisadas, o Engenheiro de Dados tem 45% de vagas que citam cloud, apesar de ser uma amostra pequena em relação ao mercado americano que tem mais de 92 mil vagas abertas no LinkedIn, no momento, é possível perceber que cloud é forte neste mercado. Para as vagas de Analista de Dados, 21% mencionaram cloud, isto é, um percentual significativamente menor do que as vagas para Engenheiro de Dados. Porém, ainda assim, indica uma presença relevante do uso de cloud nessa posição.
 
 	![image](https://user-images.githubusercontent.com/102700735/234728552-2e3dc4bf-97d1-40bd-82a7-087ebd0bf70b.png)
+	
+# Apresentação e Storytelling																																				
+																			
+![image](https://user-images.githubusercontent.com/102700735/234754168-06c90b5b-22b6-48c9-8203-06f26c8907bc.png)
 
 
 	
