@@ -42,7 +42,7 @@
 <!-- Sobre o Projeto -->
 ## Sobre o Projeto
 
-Após ver em diversos lugares as pessoas discutindo quais serviços de cloud são os maiores requisitados pelas empresas, eu decidi aproveitar o momento para satisfazer essa curiosidade e levar uma informação utíl aos stakeholders.
+Após ver em diversos lugares pessoas discutindo quais serviços de cloud são os maiores requisitados pelas empresas, eu decidi aproveitar o momento para satisfazer essa curiosidade e levar uma informação utíl aos stakeholders.
 
 
 
@@ -68,7 +68,7 @@ Para realizar este projeto, foi usado as seguintes ferramenta:
 
 ## Análise dos Dados
 
-Antes de prosseguir com a análise de dados, é essencial compreender e descobrir os requisitos do negócio, juntamente com as perguntas que precisam ser respondidas para depois realizar a etapa de preparação dos dados e, assim, dar início à análise propriamente dita. Dessa forma, resultará em um projeto mais preciso e bem-sucedido.
+Antes de prosseguir com a análise de dados, é essencial compreender e entender os requisitos do negócio, juntamente com as perguntas que precisam ser respondidas para depois realizar a etapa de preparação dos dados e, assim, dar início à análise propriamente dita. Dessa forma, resultará em um projeto mais preciso e bem-sucedido.
 
 ### Requisitos de Negócios
 
@@ -89,7 +89,7 @@ Assim, as perguntas feitas, são:
 
 ### Processo ETL
 
-Para este projeto, foi decidido que o processo ETL será realizado utilizando o Power Query e sua linguagem M, que foi implementada no Excel de versão 2010 em diante.
+Para este projeto, foi decidido que o processo ETL será realizado utilizando o Power Query e a sua linguagem M, que foi implementada no em algumas versões do Excel.
 
 Após importar os arquivos obtidos no Kaggle e carrega-los no Power Query, foi realizada a primeira análise dos dados, essa para conhecer a base de uma maneira geral, para assim realizar a transformação necessária.
 
@@ -102,9 +102,9 @@ Após importar os arquivos obtidos no Kaggle e carrega-los no Power Query, foi r
 
 2. Etapa:
 
-	Para responder as questões de negócio, precisará saber de qual país é cada vaga, para isso, foi verificado que no campo de localização tem a cidade, estado e país separados por vírgula, alguns casos, está apenas a cidade ou estado e país precisando de mais um processo, além de separar a coluna por vírgula.
+	Para responder as questões de negócio, precisará saber de qual país é cada vaga, para isso, foi verificado que no campo de localização tem a cidade, estado e país separados por vírgula, alguns casos, está apenas a cidade ou estado e país precisando de mais um processo.
 
-	Para esta etapa, no Canadá, foi usado o <i>separador de colunas por delimitador (vírgula)</i> e depois usado a ferramenta <i>preenchimento para baixo</i>, assim todos os registros terão o nome do país para uso posterior na análise.
+	Para esta etapa, no Canadá, foi usado o <i>separador de colunas por delimitador (vírgula)</i> e depois usada o comando <i>preenchimento para baixo</i>, assim todos os registros terão o nome do país para uso posterior na análise.
 
 	Nos EUA, os registros que tem o nome do país estão em inglês e há os que tem apenas cidade e estado, conforme mencionado anteriormente. Para colocar um campo informando o país foi necessário apenas usar a opção de adicionar <i>coluna personalizada</i> recebendo uma string "Estados Unidos".
 
