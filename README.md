@@ -31,6 +31,7 @@
         <li><a href="#analise-de-dados">Analise de Dados</a></li>
       </ul> 
     </li>
+    <li><a href="#apresentação-e-storytelling">Apresentação e Storytelling</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
@@ -196,7 +197,7 @@ Após a etapa de ETL, é possível realizar a análise com base nas perguntas pr
 
 	Para responder a 1° pergunta, foi usado um gráfico de pizza em que há duas fatias, uma para representar as vagas que não e a outra para a que menciona cloud. 
 	
-	![image](https://user-images.githubusercontent.com/102700735/234446481-b483fea1-1081-4fc1-8c87-0173ef4ebe8c.png)
+	![image](https://user-images.githubusercontent.com/102700735/235042456-1367f84c-0584-407d-888b-08fe9a32f7ec.png)
 	
 	Para todas as vagas disponíveis, foi identificado que apenas 1/5 delas pedem ou ao menos mencionam o uso de cloud em suas descrições.
 	
@@ -204,7 +205,7 @@ Após a etapa de ETL, é possível realizar a análise com base nas perguntas pr
 
 	A partir do gráfico apresentado abaixo, é possível verificar que o serviço AWS é o mais frequentemente mencionado, com um total de 162 aparições a mais do que o segundo colocado, o Azure. Em seguida, na terceira posição, está o GCP, sendo que os três juntos somam 93% das aparições nas vagas. A quarta posição é ocupada pelo Salesforce, com 159 citações, enquanto o IBM Cloud aparece em último lugar, com apenas duas menções.
 
-	![image](https://user-images.githubusercontent.com/102700735/234467723-1ea770dc-bb72-4258-8f78-d2965eae21bd.png)
+	![image](https://user-images.githubusercontent.com/102700735/235056263-25bd64cf-2fad-4134-b9b8-cf268b29c7c2.png)
 	
 3. Pergunta - Qual é a utilização de cada serviço por país ou região, considerando os agrupamentos?
 
@@ -212,13 +213,13 @@ Após a etapa de ETL, é possível realizar a análise com base nas perguntas pr
 
 	Ao avaliar as categorias de clouds de forma isolada, nota-se que o Azure se destaca na África, embora seja o segundo menor nos Estados Unidos, ficando atrás do Salesforce. O AWS, por sua vez, é o maior serviço de cloud nos EUA e mantém uma boa posição e constância de 150 a 220 aparições em todos os países analisados. Já o GCP é o menor nos Estados Unidos, mas vence o Salesforce em todos os outros países e regiões, apresentando uma média de 85 aparições.
 	
-	![image](https://user-images.githubusercontent.com/102700735/234471103-3dc617c5-bf4e-48e2-a051-928e753b3e96.png)
+	![image](https://user-images.githubusercontent.com/102700735/235039923-a1ed1b15-91c9-471a-8ba5-1af0a7e3b4df.png)
 
 4. Pergunta - Qual é a proporção de cada país ou região para o uso de cloud?
 
 	Entre as regiões analisadas, foi possível observar que o Canadá apresentou a maior proporção de vagas com a menção de serviços de cloud na descrição, correspondendo a 43% do total de vagas. Em seguida, a África apareceu com uma proporção aproximadamente 7% menor que o Canadá. Já os Estados Unidos apresentaram a menor proporção de vagas com cloud na descrição, correspondendo a apenas 21% do total, o que representa a metade da quantidade de vagas do Canadá.
 	
-	![image](https://user-images.githubusercontent.com/102700735/234728409-70b9a985-3e9a-4861-958c-dad8bdca5f1e.png)
+	![image](https://user-images.githubusercontent.com/102700735/235039870-742bfa39-5426-4ba9-875a-a32d36ff952e.png)
 
 5. Pergunta - Considerando a quantidade de vagas disponíveis, quais são as funções que mais exigem ou mencionam o uso de serviços em nuvem em sua descrição?
 
@@ -228,12 +229,18 @@ Após a etapa de ETL, é possível realizar a análise com base nas perguntas pr
 
 	![image](https://user-images.githubusercontent.com/102700735/234728552-2e3dc4bf-97d1-40bd-82a7-087ebd0bf70b.png)
 	
-# Apresentação e Storytelling																																				
-																			
-![image](https://user-images.githubusercontent.com/102700735/234754168-06c90b5b-22b6-48c9-8203-06f26c8907bc.png)
-
-
 	
+	
+## Apresentação e Storytelling	
+
+Com base na análise realizada e nos insights obtidos, foi decidido criar dois relatórios para apresentação aos stakeholders. Um deles destacará o desempenho de cada serviço nas vagas em dados, enquanto o outro mostrará a relação dos países e regiões analisados com os serviços cloud, além de determinar a proporção em que cada cargo analisado mencionou algum serviço cloud em sua descrição.											
+																	
+![image](https://user-images.githubusercontent.com/102700735/235055898-2ec21e39-dd32-44c9-9870-95c376e1db6d.png)
+
+
+
+![image](https://user-images.githubusercontent.com/102700735/235039707-8887bd27-1abf-45ef-b0bb-5c9fdf91fa7a.png)
+
 
 	
 <!-- LICENSE -->
